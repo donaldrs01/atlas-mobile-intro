@@ -5,7 +5,7 @@ import { FlashList } from "@shopify/flash-list";
 import Activity from "@/components/Activity";
 
 export default function Index() {
-    const {activities} = useActivitiesContext();
+    const {activities, deleteAllActivities } = useActivitiesContext();
     return (
         <View style={styles.container}>
             {/*}
@@ -22,6 +22,7 @@ export default function Index() {
                     estimatedItemSize={50}
                 />
             </View>
+            {/* Add Activity Button */}
             <Pressable
                 style={styles.button}
                 onPress={() => {
@@ -30,6 +31,15 @@ export default function Index() {
             >
                 <Text style={styles.buttonText}>Add activity</Text>
             </Pressable>
+            {/* Delete Activities Button */}
+            <Pressable
+                style={[styles.button, styles.deleteButton]}
+                onPress={() => {
+                    deleteAllActivities();
+                }}
+                >
+                    <Text style={styles.buttonText}>Delete All Activities</Text>
+                </Pressable>
         </View>
     );
 }
@@ -48,6 +58,10 @@ const styles = StyleSheet.create({
         padding: 16,
         paddingTop: 10,
         width: "100%",
+    },
+    deleteButton: {
+        backgroundColor: "#D00414",
+        marginTop: 10,
     },
     buttonText: {
         color: "white",
