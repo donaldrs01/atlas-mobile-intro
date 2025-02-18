@@ -8,11 +8,12 @@ export default function Index() {
                 Homepage
             </Text>
             <Pressable
+                style={styles.button}
                 onPress={() => {
                     router.replace("/add-activity-screen");
                 }}
             >
-                <Text>Add activity</Text>
+                <Text style={styles.buttonText}>Add activity</Text>
             </Pressable>
         </View>
     );
@@ -27,4 +28,13 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 24,
     },
+    button: {
+        backgroundColor: "#1ED2AF",
+        padding: 16,
+        width: "100%",
+    },
+    buttonText: {
+        color: "white",
+        textAlign: "center",
+    }
 });
