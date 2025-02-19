@@ -9,10 +9,10 @@ export default function AddActivity() {
 
     return (
         <View style={styles.container}>
-            <Text>AddActivityScreen</Text>
+            <Text style={styles.pageHeader}>Add Activity</Text>
             <TextInput style={styles.TextInput} placeholder="Enter steps" keyboardType="number-pad" onChangeText={(value) => setSteps(parseInt(value))} />
                 <Pressable style={styles.addButton} onPress={() => {
-                    insertActivity(steps, new Date());
+                    insertActivity(steps);
                     router.push("/");
                 }}>
                     <Text style={styles.buttonText}>Add Activity</Text>
@@ -36,11 +36,15 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    pageHeader: {
+        fontSize: 20,
+        fontWeight: "bold",
+    },
     addButton: {
         backgroundColor: "#1ED2AF",
         padding: 16,
         width: "100%",
-        marginBottom: 16,
+        marginBottom: 4
     },
     button: {
         backgroundColor: "#D00414",
@@ -52,6 +56,10 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     TextInput: {
-        padding: 16,
+        marginTop: 8,
+        marginBottom: 8,
+        borderWidth: 2,
+        width:"100%",
+        padding: 10,
     }
 })
